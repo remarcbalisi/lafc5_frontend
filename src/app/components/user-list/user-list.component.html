@@ -1,3 +1,29 @@
-<p>
-  user-list works!
-</p>
+<table *ngIf="users">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users ">
+      <td>{{user?.fname}} {{user?.lname}}</td>
+      <td>{{user?.email}}</td>
+      <td>
+          <button type="button" class="btn waves-effect waves-light">View</button>
+          <button type="button" class="btn waves-effect waves-light">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!users" class="row">
+  Loading users...
+  <div class="col s12">
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+  </div>
+</div>
