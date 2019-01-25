@@ -13,6 +13,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  loading = false;
+
   error : any;
 
   loginForm = new FormGroup({
@@ -36,13 +38,17 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
 
+    this.loading = true;
+
     this.apiService.loginRequest('auth/login',this.loginForm.value).subscribe(response=>{
       let resp : any;
       resp = response;
+      this.loading = false;
       this.tokenService.set(resp.access_token);
       this.Auth.setAuth(true);
       this.router.navigateByUrl('me');
     }, error=>{
+      this.loading = false;
       this.error = {
         message: 'Invalid email/password'
       }

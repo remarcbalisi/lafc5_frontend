@@ -12,6 +12,14 @@
         <label for="password">Password</label>
       </div>
     </div>
-    <button type="submit" [disabled]="!loginForm.valid" class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+    <button *ngIf="!loading" type="submit" [disabled]="!loginForm.valid" class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
   </form>
+
+  <div *ngIf="loading" class="col s12">
+      Logging you in...
+      <div class="progress">
+          <div class="indeterminate"></div>
+      </div>
+  </div>
+
 </div>
