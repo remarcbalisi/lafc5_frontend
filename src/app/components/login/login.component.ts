@@ -3,6 +3,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { TokenService } from 'src/app/services/token.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,19 +25,23 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private apiService : ApiService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router,
+    private Auth: AuthService
   ) { }
 
   ngOnInit() {
+
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.log(this.loginForm.value);
+
     this.apiService.loginRequest('auth/login',this.loginForm.value).subscribe(response=>{
       let resp : any;
       resp = response;
       this.tokenService.set(resp.access_token);
+      this.Auth.setAuth(true);
+      this.router.navigateByUrl('me');
     }, error=>{
       this.error = {
         message: 'Invalid email/password'
