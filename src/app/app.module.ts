@@ -13,6 +13,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { NumberLoopPipe } from './pipes/number-loop.pipe';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NumberLoopPipe } from './pipes/number-loop.pipe';
     LandingComponent,
     TabsComponent,
     UserListComponent,
-    NumberLoopPipe
+    NumberLoopPipe,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,

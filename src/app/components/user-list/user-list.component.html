@@ -2,36 +2,26 @@
   <div class="col s12">
 
         <ul class="pagination">
-          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key+1}"><a href="#!">{{key+1}}</a></li>
-          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a style="cursor: pointer;" (click)="prev()"><i class="material-icons">chevron_left</i></a></li>
+          <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key+1}"><a style="cursor: pointer;" (click)="goTo(key+1)">{{key+1}}</a></li>
+          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a style="cursor: pointer;" (click)="next()"><i class="material-icons">chevron_right</i></a></li>
         </ul>
         
-        <table>
-          <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Action</th>
-            </tr>
-          </thead>
-        
-          <tbody>
-            <tr *ngFor="let user of users.data ">
-              <td>{{user?.fname}} {{user?.lname}}</td>
-              <td>{{user?.email}}</td>
-              <td>
-                  <button type="button" class="btn waves-effect waves-light">View</button>
-                  <button type="button" class="btn waves-effect waves-light">Edit</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <ul class="collection">
+          <li *ngFor="let user of users.data " class="collection-item avatar">
+            <img src="assets/img/angular-icon.png" alt="" class="circle">
+            <span class="title">{{user?.fname}} {{user?.lname}}</span>
+            <p>
+              {{user?.email}}
+            </p>
+            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+          </li>
+        </ul>
 
         <ul class="pagination">
-          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key}"><a href="#!">{{key+1}}</a></li>
-          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a style="cursor: pointer;" (click)="prevNext(users.prev_page_url)"><i class="material-icons">chevron_left</i></a></li>
+          <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key+1}"><a style="cursor: pointer;" (click)="goTo(key+1)">{{key+1}}</a></li>
+          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a style="cursor: pointer;" (click)="prevNext(users.next_page_url)"><i class="material-icons">chevron_right</i></a></li>
         </ul>
 
   </div>
