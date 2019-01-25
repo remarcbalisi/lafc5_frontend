@@ -11,11 +11,13 @@ export class TabsComponent implements OnInit {
   tabs = [
     {
       title : 'User List',
-      id : 'tab1'
+      id : 'tab1',
+      link: 'user-list'
     },
     {
       title : 'Apply Leave',
-      id : 'tab2'
+      id : 'tab2',
+      link : ''
     }
   ];
 

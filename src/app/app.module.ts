@@ -11,6 +11,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TabsComponent } from './components/tabs/tabs.component';
     ProfileComponent,
     SignupComponent,
     LandingComponent,
-    TabsComponent
+    TabsComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
