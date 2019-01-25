@@ -1,6 +1,12 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand">Fiercecom Leave Application</a>
-  <a class="navbar" routerLink="login" *ngIf="!isLoggedIn">Login</a>
-  <a class="navbar" routerLink="signup" *ngIf="!isLoggedIn">Signup</a>
-  <a class="navbar" routerLink="me" *ngIf="isLoggedIn">Profile</a>
-</nav>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Fiercecom Inc.</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a routerLink="login" *ngIf="!isLoggedIn">Login</a></li>
+        <li><a routerLink="signup" *ngIf="!isLoggedIn">Signup</a></li>
+        <li><a routerLink="me" *ngIf="isLoggedIn">Profile</a>
+      </ul>
+    </div>
+  </nav>
+</div>

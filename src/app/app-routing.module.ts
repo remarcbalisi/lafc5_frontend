@@ -4,8 +4,13 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { LandingComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: LandingComponent
+  },
   {
     path: 'login',
     component: LoginComponent
