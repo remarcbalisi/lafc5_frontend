@@ -1,23 +1,41 @@
-<table *ngIf="users">
-  <thead>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Action</th>
-    </tr>
-  </thead>
+<div *ngIf="users" class="row">
+  <div class="col s12">
 
-  <tbody>
-    <tr *ngFor="let user of users ">
-      <td>{{user?.fname}} {{user?.lname}}</td>
-      <td>{{user?.email}}</td>
-      <td>
-          <button type="button" class="btn waves-effect waves-light">View</button>
-          <button type="button" class="btn waves-effect waves-light">Edit</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <ul class="pagination">
+          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key+1}"><a href="#!">{{key+1}}</a></li>
+          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+        
+        <table>
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+        
+          <tbody>
+            <tr *ngFor="let user of users.data ">
+              <td>{{user?.fname}} {{user?.lname}}</td>
+              <td>{{user?.email}}</td>
+              <td>
+                  <button type="button" class="btn waves-effect waves-light">View</button>
+                  <button type="button" class="btn waves-effect waves-light">Edit</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ul class="pagination">
+          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+          <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key}"><a href="#!">{{key+1}}</a></li>
+          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+
+  </div>
+</div>
 
 <div *ngIf="!users" class="row">
   Loading users...

@@ -12,6 +12,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { NumberLoopPipe } from './pipes/number-loop.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     SignupComponent,
     LandingComponent,
     TabsComponent,
-    UserListComponent
+    UserListComponent,
+    NumberLoopPipe
   ],
   imports: [
     BrowserModule,
