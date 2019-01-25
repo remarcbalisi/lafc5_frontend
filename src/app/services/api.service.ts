@@ -11,21 +11,25 @@ export class ApiService {
   constructor(
     private http: HttpClient
   ) { }
-
-  getRequest(endpoint){
-    return this.http.get(url + endpoint);
-  }
-
-  postRequest(endpoint, credentials, token){
-
+  
+  setHeaders(token){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'Authorization': 'Bearer ' + token
       })
     };
+    return httpOptions;
+  }
 
-    return this.http.post(url+endpoint, credentials, httpOptions);
+  getRequest(endpoint, token){
+    return this.http.get(url + endpoint, this.setHeaders(token));
+  }
+
+  postRequest(endpoint, credentials, token){
+
+    return this.http.post(url+endpoint, credentials, this.setHeaders(token));
+
   }
 
   loginRequest(endpoint, credentials){

@@ -5,7 +5,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a routerLink="login" *ngIf="!isLoggedIn">Login</a></li>
         <li><a routerLink="signup" *ngIf="!isLoggedIn">Signup</a></li>
-        <li><a routerLink="me" *ngIf="isLoggedIn">Profile</a>
+        <li><a routerLink="me" *ngIf="isLoggedIn && authUser">{{authUser.fname}} {{authUser.mname}}</a>
       </ul>
     </div>
   </nav>

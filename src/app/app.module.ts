@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LandingComponent } from './components/landing/landing.component';
     LoginComponent,
     ProfileComponent,
     SignupComponent,
-    LandingComponent
+    LandingComponent,
+    TabsComponent
   ],
   imports: [
     BrowserModule,
