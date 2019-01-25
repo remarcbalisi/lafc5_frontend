@@ -21,4 +21,8 @@ export class AuthService {
     this.authenticationState.next(state);
   }
 
+  authState(){
+    return this.authenticationState;
+  }
+
 }
