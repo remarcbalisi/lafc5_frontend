@@ -15,6 +15,7 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { NumberLoopPipe } from './pipes/number-loop.pipe';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { BirthdatePipe } from './pipes/birthdate.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     TabsComponent,
     UserListComponent,
     NumberLoopPipe,
-    UserInfoComponent
+    UserInfoComponent,
+    BirthdatePipe
   ],
   imports: [
     BrowserModule,
