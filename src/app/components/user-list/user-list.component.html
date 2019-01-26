@@ -15,16 +15,16 @@
               {{user?.email}}
             </p>
             <div class="secondary-content">
+                <a style="cursor: pointer;" (click)="viewUser(user.id)"><i class="material-icons">pageview</i></a>
                 <a><i class="material-icons">edit</i></a>
-                <a><i class="material-icons">pageview</i></a>
             </div>
           </li>
         </ul>
 
         <ul class="pagination">
-          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a style="cursor: pointer;" (click)="prevNext(users.prev_page_url)"><i class="material-icons">chevron_left</i></a></li>
+          <li [ngClass]="{'disabled':users.prev_page_url == null}"><a style="cursor: pointer;" (click)="prev()"><i class="material-icons">chevron_left</i></a></li>
           <li *ngFor="let key of users?.last_page | numberLoop" [ngClass]="{'active':users.current_page == key+1}"><a style="cursor: pointer;" (click)="goTo(key+1)">{{key+1}}</a></li>
-          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a style="cursor: pointer;" (click)="prevNext(users.next_page_url)"><i class="material-icons">chevron_right</i></a></li>
+          <li [ngClass]="{'disabled':users.next_page_url == null}" class="waves-effect"><a style="cursor: pointer;" (click)="next()"><i class="material-icons">chevron_right</i></a></li>
         </ul>
 
   </div>

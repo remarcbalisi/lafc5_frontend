@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
 import { ApiService } from 'src/app/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -16,7 +17,8 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -53,6 +55,10 @@ export class UserListComponent implements OnInit {
         this.users = response;
       });
     }
+  }
+
+  viewUser(id){
+    this.router.navigate(['/user-info', id]);
   }
 
 }

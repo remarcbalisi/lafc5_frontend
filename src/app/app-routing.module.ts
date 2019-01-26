@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LandingComponent } from './components/landing/landing.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'user-list',
     component: UserListComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'user-info/:id',
+    component: UserInfoComponent,
     canActivate: [AuthGuardService]
   }
 ];
