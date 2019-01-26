@@ -1,12 +1,21 @@
-<div class="navbar-fixed">
-  <nav class="green darken-3">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Fiercecom Inc.</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a routerLink="login" *ngIf="!isLoggedIn">Login</a></li>
-        <li><a routerLink="signup" *ngIf="!isLoggedIn">Signup</a></li>
-        <li><a routerLink="me" *ngIf="isLoggedIn && authUser">{{authUser.fname}} {{authUser.mname}}</a>
-      </ul>
-    </div>
-  </nav>
-</div>
+<nav class="nav-extended">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Fiercecom Inc.</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a routerLink="login" *ngIf="!isLoggedIn">Login</a></li>
+      <li><a routerLink="signup" *ngIf="!isLoggedIn">Signup</a></li>
+      <li><a routerLink="me" *ngIf="isLoggedIn && authUser">{{authUser.fname}} {{authUser.lname}}</a>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><a routerLink="login" *ngIf="!isLoggedIn">Login</a></li>
+      <li><a routerLink="signup" *ngIf="!isLoggedIn">Signup</a></li>
+      <li><a routerLink="me" *ngIf="isLoggedIn && authUser">{{authUser.fname}} {{authUser.mname}}</a>
+    </ul>
+  </div>
+  <div *ngIf="isLoggedIn && authUser" class="nav-content">
+    <ul class="tabs tabs-transparent">
+      <li *ngFor="let tab of tabs " class="tab"><a routerLink="{{tab.link}}">{{tab.title}}</a></li>
+    </ul>
+  </div>
+</nav>
