@@ -1,34 +1,77 @@
-<div *ngIf="user" class="row">
+<div class="container">
+  <div *ngIf="user" class="row">
 
-  <div class="col s12 m6">
-    <div class="card">
-      <div class="card-image">
-        <img src="assets/img/boathouse-cottage-dock.jpg">
-        <span class="card-title">
-          {{user?.fname}} {{user?.mname}} {{user?.lname}}
-        </span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
-      </div>
-      <div class="card-content">
-          <div class="chip green darken-2 white-text text-white">
-            {{user?.department.name}}
-          </div>
-          <div *ngFor="let role of user.user_roles" class="chip green darken-2 white-text text-white">
-            {{role?.role.name}}
-          </div>
-          <div *ngFor="let status of user.user_status" class="chip green darken-2 white-text text-white">
-            {{status?.status.name}}
-          </div>
-        <p style="font: size 10px;">{{user?.email}}</p>
+    <div class="col s12 m12">
+      <div class="card">
+        <div class="card-image">
+          <img class="img-card" src="assets/img/boathouse-cottage-dock.jpg">
+          <span class="card-title">
+            {{user?.fname}} {{user?.mname}} {{user?.lname}}
+          </span>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">edit</i></a>
+        </div>
+        <div class="card-content">
+            <div class="chip green darken-2 white-text text-white">
+              {{user?.department.name}}
+            </div>
+            <div *ngFor="let role of user.user_roles" class="chip green darken-2 white-text text-white">
+              {{role?.role.name}}
+            </div>
+            <div *ngFor="let status of user.user_status" class="chip green darken-2 white-text text-white">
+              {{status?.status.name}}
+            </div>
+            <div *ngIf="user?.team_leader" class="chip green darken-2 white-text text-white">
+              Team Leader: {{user?.team_leader_info.fname}} {{user?.team_leader_info.lname}}
+            </div>
+          <p style="font: size 10px;">{{user?.email}}</p>
+        </div>
       </div>
     </div>
-  </div>
+    
+    <div class="col s12 m12">
+      <div class="col s12 m12">
+        <h4 class="basic-info-title">Basic Information</h4>
+      </div>
 
-  <div class="col s12 m6">
-    <p><strong>Birth Date: </strong> {{user?.b_day | birthdate}}</p>
-    <p><strong>Date hired: </strong> {{user?.date_hired | birthdate}}</p>
-    <p><strong>Employee ID: </strong> {{user?.employee_id}}</p>
-    <p><strong>Username: </strong> {{user?.username}}</p>
+      <div class="col s12 m12">
+        <p><strong>Birth Date: </strong> {{user?.b_day | birthdate}}</p>
+        <p><strong>Date hired: </strong> {{user?.date_hired | birthdate}}</p>
+        <p><strong>Employee ID: </strong> {{user?.employee_id}}</p>
+        <p><strong>Username: </strong> {{user?.username}}</p>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col s12 m12">
+      <div class="col s12 m12">
+        <h4 class="basic-info-title">Contact Information</h4>
+      </div>
+
+      <div *ngFor="let contact of user?.contacts" class="col s12 m6">
+        <p><strong>Type: </strong> {{contact?.contact_type.name}}</p>
+        <p><strong>Number: </strong> {{contact?.country_code}} {{contact?.number}}</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col s12 m12">
+      <div class="col s12 m12">
+        <h4 class="basic-info-title">Address Information</h4>
+      </div>
+
+      <div *ngFor="let address of user?.address" class="col s12 m6">
+        <p><strong>Type: </strong> {{address?.address_type.name}}</p>
+        <p><strong>Street: </strong> {{address?.street}}</p>
+        <p><strong>Unit no.: </strong> {{address?.unit_no}}</p>
+        <p><strong>City: </strong> {{address?.city}}</p>
+        <p><strong>Province: </strong> {{address?.province}}</p>
+        <p><strong>Postal Code: </strong> {{address?.postal_code}}</p>
+      </div>
+    </div>
+  
   </div>
 
 </div>
